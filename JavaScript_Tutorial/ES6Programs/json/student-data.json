@@ -1,0 +1,17 @@
+[
+{
+    "name": "Kumar Saanu",
+    "age": "45",
+    "city":"Mumbai"
+},
+{
+    "name": "Dilip Kumar",
+    "age": "90",
+    "city":"Delhi"
+},
+{
+    "name": "Hrutu Naik",
+    "age": "03",
+    "city":"Goa"
+}
+]

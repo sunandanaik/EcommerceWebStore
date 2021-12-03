@@ -1,0 +1,45 @@
+div{
+    height: 12.5rem;
+    width:12.5rem;
+    border: 12px solid;
+    border-radius: 50%;
+    margin: 1rem;
+}
+.blue{
+    color: #3498db;
+}
+.black{
+    color:black;
+    position: relative;
+    z-index: 1000;
+}
+.red{
+    color: #ca2e2e;
+}
+.yellow{
+    color:#ffa600;
+}
+.green{
+    color:#19a019;
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(90deg);
+}
+.bottom{
+    position: relative;
+    right: 8.125rem;
+}
+
+/* Responsive */
+@media screen and (max-width:750px) {
+    div{
+        width: 130px;
+        height: 130px;
+    }
+    .bottom{
+        right: 7rem;
+    }
+}

@@ -1,0 +1,33 @@
+body{
+    background-color: #3498db;
+    display: flex;
+    justify-content: center; /*aligns horizontally*/
+    align-items: center; /*aligns vertically*/
+    height: 100vh;
+}
+#form-container{
+    background-color: #fff;
+    padding:50px;
+    text-align: center;
+}
+h2{
+    margin:0 0 10px 0;
+}
+input{
+    width:200px;
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 15px;
+}
+input[type="submit"]{
+    width: 222px;
+    background-color: #3498db;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+}
+.error{
+    color: red;
+    margin: 0;
+    text-align: left;
+}

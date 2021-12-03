@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>JS Classes</h1>
+</body>
+<script>
+ class Student
+ {
+     constructor(n)
+     {
+         this.name=n;
+        console.log("constructor called");
+     }
+     hello()
+     {
+         console.log("Hello "+this.name);
+     }
+     static demo()
+     {
+         console.log("I am static func");
+     }
+ }
+ //create object of class Hello
+ let s = new Student("Hrutika"); //automatically calls constructor
+ //s.name="Hrutika";
+ s.hello();
+ //static methods are called by classname
+ Student.demo();
+
+</script>
+</html>

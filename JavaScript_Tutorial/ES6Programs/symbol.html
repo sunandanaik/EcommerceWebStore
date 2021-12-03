@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //how to use symbol in the object
+        let age = Symbol("Age");
+        let user = {
+            name:'Jack',
+            class:'MCA'
+            
+        };
+        user[age] = 25;//loop doesnt print symbol.
+        user["gender"] = "Male";//this prints.
+
+        console.log(user);
+        //to convert object to json and print
+        console.log(JSON.stringify(user));
+        //Now to use symbol and convert to json so that we send it to server
+        //we must use description keyword for symbol and then convert to json
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

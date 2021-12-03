@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let promiseCall=function(returnValue,message){
+            return function(resolve,reject){
+                setTimeout(()=>{
+                console.log(`The ${message} promise has resolved!!!`)
+                resolve(returnValue);
+            },returnValue*100);
+            }
+        }
+      
+        let p1=new Promise(promiseCall(10,"first"));
+        let p2=new Promise(promiseCall(20,"Second"));
+        let p3=new Promise(promiseCall(30,"Third"));
+
+        var total=0;
+        Promise.all([p1,p2,p3]).then((response)=>{
+            //to sum all values returned from 3 promises
+            for(var i in response)
+            {
+                total += response[i];
+            }
+            console.log(`Results :${response}`);
+            console.log(`Sum is :${total}`);
+        }).catch((error)=>{
+        console.log("Error:"+error);
+        });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
