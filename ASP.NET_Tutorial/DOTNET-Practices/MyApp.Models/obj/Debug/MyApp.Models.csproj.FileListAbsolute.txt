@@ -1,0 +1,5 @@
+D:\ASP.NET_Tutorial\DOTNET-Practices\MyApp.Models\bin\Debug\MyApp.Models.dll
+D:\ASP.NET_Tutorial\DOTNET-Practices\MyApp.Models\bin\Debug\MyApp.Models.pdb
+D:\ASP.NET_Tutorial\DOTNET-Practices\MyApp.Models\obj\Debug\MyApp.Models.csproj.CoreCompileInputs.cache
+D:\ASP.NET_Tutorial\DOTNET-Practices\MyApp.Models\obj\Debug\MyApp.Models.dll
+D:\ASP.NET_Tutorial\DOTNET-Practices\MyApp.Models\obj\Debug\MyApp.Models.pdb

@@ -1,0 +1,25 @@
+﻿@model IEnumerable<MyMVCApp.Models.Employee>
+@using MyMVCApp.Models
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index- Employee</title>
+</head>
+<body>
+    <div> 
+        <h1>Employee List</h1>
+        <ul>
+            @foreach(Employee emp in @Model)
+            {
+                <li>@Html.ActionLink(emp.Name,"Create",new { id= emp.EmpId })</li>
+            }
+        </ul>
+    </div>
+</body>
+</html>

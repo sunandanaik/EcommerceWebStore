@@ -1,0 +1,19 @@
+Login failed for user 'IIS APPPOOL\ASP.NET v4.0' error in IIS7
+After running a ASP.NET website on IIS 7.5 for the first time on a Windows 7 computer, I was faced with the following error message:
+Login failed for user 'IIS APPPOOL\ASP.NET v4.0'.
+Description: An unhandled exception occurred during the execution of the current web request. Please review the stack trace for more information about the error and where it originated in the code.
+
+Exception Details: System.Data.SqlClient.SqlException: Login failed for user 'IIS APPPOOL\ASP.NET v4.0'.
+To fix this issue, try changing the (Process Model) Identity of your website's Application Pool to use the NetworkService account (or the less secure LocalSystem account). By default, IIS7 seems to set the Application Pools Identity to 'ApplicationPoolIdentity', instead of NetworkService or LocalSystem.
+Here's a step-by-step guide for determining your websites Application Pool, then changing its Process Model Idenitty in IIS7:
+1.     Open Internet Information Services (IIS) Manger.
+2.     In the Connections sidebar, drill down into Default Web Site and click on your website.
+3.     Now in the Actions sidebar (on right side), click on Advance Settings... In the popup box, under General you will see your Application Pool listed for your website (in my case the app pool is: ASP.NET V4.0).
+4.     Click Cancel... If you choose, you can change the Application Pool here, but for the sake of this example we just wanted to find out what the website's App Pool was.
+Now that we know the Application Pool that is configured for your website, we now want to change the app pool's (Process Model) Identity to 'NetworkService', here's how:
+1.     Open Internet Information Services (IIS) Manger.
+2.     In the Connections sidebar, click on Application Pools.
+3.     Now right-click on theApplication Pool that your website is using (in this case my site is using the ASP.NET v4.0 application pool), and select Advanced Settings... from the menu.
+4.     In the Advanced Settings pop-up box, locate the Process Model -> Identity section and click on the Application Pool Identity.
+5.     In the Application Pool Identity pop-up box, change the Built-in account to NetworkService (or if you want LocalSystem), then click OK, and click OK again to save your Advanced Settings changes.
+After changing the Application Pool's Identity to NetworkService (or LocalSystem) you should now be able to get your ASP.NET site to run successfully on an IIS7 web server:

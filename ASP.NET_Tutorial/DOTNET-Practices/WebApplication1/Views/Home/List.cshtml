@@ -1,0 +1,28 @@
+﻿@model IEnumerable<WebApplication1.Models.Employee>
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>Employee List</h2>
+@Ajax.ActionLink("Countries", "Countries", new AjaxOptions() { InsertionMode = InsertionMode.Replace, UpdateTargetId = "ListContainer", LoadingElementId = "loader" })
+@Ajax.ActionLink("States", "States", new AjaxOptions() { InsertionMode = InsertionMode.Replace, UpdateTargetId = "ListContainer", LoadingElementId = "loader" })
+@Ajax.ActionLink("City", "City", new AjaxOptions() { InsertionMode = InsertionMode.Replace, UpdateTargetId = "ListContainer", LoadingElementId = "loader" })
+
+
+<div id="loader" style="display:none;">
+    <img src="~/Content/loader.gif" height="100px" width="200px" />
+</div>
+<div id="ListContainer">
+
+</div>
+
+
+@foreach (var item in Model)
+{
+    @*@Html.Partial("_Card",item)*@
+    //OR
+    Html.RenderPartial("_Card", item);
+}
+<!--Using RenderPartial Syntax-->
+@*@{ Html.RenderPartial("_Card");}*@
+
