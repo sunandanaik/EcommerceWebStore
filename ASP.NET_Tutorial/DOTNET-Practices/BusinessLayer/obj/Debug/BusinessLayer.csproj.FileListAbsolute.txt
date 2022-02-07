@@ -1,6 +1,0 @@
-D:\ASP.NET_Tutorial\DOTNET-Practices\BusinessLayer\bin\Debug\BusinessLayer.dll
-D:\ASP.NET_Tutorial\DOTNET-Practices\BusinessLayer\bin\Debug\BusinessLayer.pdb
-D:\ASP.NET_Tutorial\DOTNET-Practices\BusinessLayer\obj\Debug\BusinessLayer.csproj.AssemblyReference.cache
-D:\ASP.NET_Tutorial\DOTNET-Practices\BusinessLayer\obj\Debug\BusinessLayer.csproj.CoreCompileInputs.cache
-D:\ASP.NET_Tutorial\DOTNET-Practices\BusinessLayer\obj\Debug\BusinessLayer.dll
-D:\ASP.NET_Tutorial\DOTNET-Practices\BusinessLayer\obj\Debug\BusinessLayer.pdb

@@ -1,6 +1,0 @@
-D:\ASP.NET_Tutorial\DOTNET-Practices\MyMvc.Models\bin\Debug\MyMvc.Models.dll
-D:\ASP.NET_Tutorial\DOTNET-Practices\MyMvc.Models\bin\Debug\MyMvc.Models.pdb
-D:\ASP.NET_Tutorial\DOTNET-Practices\MyMvc.Models\obj\Debug\MyMvc.Models.csproj.AssemblyReference.cache
-D:\ASP.NET_Tutorial\DOTNET-Practices\MyMvc.Models\obj\Debug\MyMvc.Models.csproj.CoreCompileInputs.cache
-D:\ASP.NET_Tutorial\DOTNET-Practices\MyMvc.Models\obj\Debug\MyMvc.Models.dll
-D:\ASP.NET_Tutorial\DOTNET-Practices\MyMvc.Models\obj\Debug\MyMvc.Models.pdb
