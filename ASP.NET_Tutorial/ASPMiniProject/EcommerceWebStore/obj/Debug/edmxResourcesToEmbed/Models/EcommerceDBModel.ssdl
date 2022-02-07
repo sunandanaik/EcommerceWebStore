@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EcommerceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl_admin">
+    <Key>
+      <PropertyRef Name="ad_id" />
+    </Key>
+    <Property Name="ad_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ad_username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ad_password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ad_createdon" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_category">
+    <Key>
+      <PropertyRef Name="cat_id" />
+    </Key>
+    <Property Name="cat_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cat_name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="cat_createdon" Type="datetime" />
+    <Property Name="cat_color" Type="varchar" MaxLength="20" />
+    <Property Name="cat_fk_admin_id" Type="int" />
+    <Property Name="cat_icon" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_order">
+    <Key>
+      <PropertyRef Name="o_id" />
+    </Key>
+    <Property Name="o_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="o_username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="o_phone" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="o_email" Type="varchar" MaxLength="50" />
+    <Property Name="o_createdon" Type="datetime" />
+    <Property Name="o_approved" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_product">
+    <Key>
+      <PropertyRef Name="prod_id" />
+    </Key>
+    <Property Name="prod_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="prod_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="prod_image1" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="prod_image2" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="prod_image3" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="prod_desc" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="prod_price" Type="float" />
+    <Property Name="prod_fk_cat_id" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_productsOrdered">
+    <Key>
+      <PropertyRef Name="op_id" />
+    </Key>
+    <Property Name="op_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="op_fk_pro_id" Type="int" />
+    <Property Name="op_qty" Type="int" />
+    <Property Name="op_unitprice" Type="float" />
+    <Property Name="op_total" Type="float" />
+    <Property Name="op_fk_o_id" Type="int" />
+  </EntityType>
+  <Association Name="FK__tbl_categ__cat_f__2B3F6F97">
+    <End Role="tbl_admin" Type="Self.tbl_admin" Multiplicity="0..1" />
+    <End Role="tbl_category" Type="Self.tbl_category" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_admin">
+        <PropertyRef Name="ad_id" />
+      </Principal>
+      <Dependent Role="tbl_category">
+        <PropertyRef Name="cat_fk_admin_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_produ__op_fk__33D4B598">
+    <End Role="tbl_product" Type="Self.tbl_product" Multiplicity="0..1" />
+    <End Role="tbl_productsOrdered" Type="Self.tbl_productsOrdered" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_product">
+        <PropertyRef Name="prod_id" />
+      </Principal>
+      <Dependent Role="tbl_productsOrdered">
+        <PropertyRef Name="op_fk_pro_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_produ__op_fk__34C8D9D1">
+    <End Role="tbl_order" Type="Self.tbl_order" Multiplicity="0..1" />
+    <End Role="tbl_productsOrdered" Type="Self.tbl_productsOrdered" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_order">
+        <PropertyRef Name="o_id" />
+      </Principal>
+      <Dependent Role="tbl_productsOrdered">
+        <PropertyRef Name="op_fk_o_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_produ__prod___2E1BDC42">
+    <End Role="tbl_category" Type="Self.tbl_category" Multiplicity="0..1" />
+    <End Role="tbl_product" Type="Self.tbl_product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_category">
+        <PropertyRef Name="cat_id" />
+      </Principal>
+      <Dependent Role="tbl_product">
+        <PropertyRef Name="prod_fk_cat_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EcommerceModelStoreContainer">
+    <EntitySet Name="tbl_admin" EntityType="Self.tbl_admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_category" EntityType="Self.tbl_category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_order" EntityType="Self.tbl_order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_product" EntityType="Self.tbl_product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_productsOrdered" EntityType="Self.tbl_productsOrdered" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__tbl_categ__cat_f__2B3F6F97" Association="Self.FK__tbl_categ__cat_f__2B3F6F97">
+      <End Role="tbl_admin" EntitySet="tbl_admin" />
+      <End Role="tbl_category" EntitySet="tbl_category" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_produ__op_fk__33D4B598" Association="Self.FK__tbl_produ__op_fk__33D4B598">
+      <End Role="tbl_product" EntitySet="tbl_product" />
+      <End Role="tbl_productsOrdered" EntitySet="tbl_productsOrdered" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_produ__op_fk__34C8D9D1" Association="Self.FK__tbl_produ__op_fk__34C8D9D1">
+      <End Role="tbl_order" EntitySet="tbl_order" />
+      <End Role="tbl_productsOrdered" EntitySet="tbl_productsOrdered" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_produ__prod___2E1BDC42" Association="Self.FK__tbl_produ__prod___2E1BDC42">
+      <End Role="tbl_category" EntitySet="tbl_category" />
+      <End Role="tbl_product" EntitySet="tbl_product" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
